@@ -1,0 +1,21 @@
+window.apCatalog={
+ kits:[
+  {name:'Kit Médio',subtitle:'Rotina completa para começar',price:'82,00 €',tone:'warm',image:'kit-medio.jpg',items:['Limpeza suave','Tónico equilibrante','Sérum hidratante','Creme facial']},
+  {name:'Kit Top',subtitle:'Cuidado intensivo e luminosidade',price:'145,00 €',tone:'dark',image:'kit-top.jpg',items:['Essência revitalizante','Ampola de centella','Sérum hialurónico','Creme nutritivo']},
+  {name:'Kit Excelente',subtitle:'A experiência premium completa',price:'235,00 €',tone:'gold',image:'kit-excelente.jpg',items:['Óleo de limpeza','Sérum concentrado','Creme renovador','Máscara de cuidado']}
+ ],
+ regeneratives:[
+  {name:'GHK-CU',kind:'Booster Peptide',image:'ghk-cu.jpg',description:'Tecnologia de cuidado regenerativo para a rotina profissional.'},
+  {name:'PDRN Factors',kind:'Regenerative Therapy',image:'pdrn-factors.jpg',description:'Fórmula avançada orientada para renovação e hidratação.'},
+  {name:'PN Regener',kind:'Polinucleótideo',image:'pn-regener.jpg',description:'Cuidado de suporte para uma pele com aspeto mais saudável.'},
+  {name:'Exosso.Dermal',kind:'Tech Exosome Therapy',image:'exosso-dermal.jpg',description:'Cuidado especializado para complementar a rotina facial.'},
+  {name:'Exosso.Hair',kind:'Tech Exosome Therapy',image:'exosso-hair.jpg',description:'Cuidado especializado para complementar a rotina capilar.'}
+ ],
+ naturals:[
+  {icon:'01',name:'Óleos vegetais',description:'Cuidado puro e versátil para a sua rotina.'},{icon:'02',name:'Aromaterapia',description:'Aromas que convidam a desacelerar e respirar.'},{icon:'03',name:'Acessórios naturais',description:'Pequenos rituais que fazem toda a diferença.'}
+ ],
+ products:[]
+};
+const apImages=['pink_bottle_studio.webp','green_white_tube.webp','black_facial_booster.webp','skincare_tube_isolated.webp','frosted_bottle_gold_cap.webp','glass_bottle_yellow_liquid.webp','blue_jar_studio.webp','clear_spray_bottle_studio.webp','golden_ornate_jar.webp','amber_jar_gold_lid.webp','illiyoon_ceramide_lotion.webp','anua_toner_bottle.webp','torriden_soothing_cream_jar.webp','cosrx_snail_essence.webp','beauty_of_joseon_cream_jar.webp','round_lab_moisturizing_cream.webp','torriden_serum_studio.webp','anua_serum_jar.webp','skin1004_ampoule_tube.webp','cosrx_snail_cream_jar.webp','light_green_skincare_tube.webp','pink_frosted_jar.webp','peach_tube_isolated.webp','blue_jar_product.webp','amber_dropper_bottle.webp','beige_flip_top_tube.webp','clear_glass_dropper_bottle.webp','green_dropper_bottle.webp','light_blue_squeeze_tube.webp','dark_green_spray_bottle.webp','exosso-dermal-selection.jpg','exosso-hair-selection-1.jpg','exosso-hair-selection-2.jpg','pn-regener-selection.jpg','pdrn-factors-selection.jpg','ghk-cu-selection.jpg'];
+const apProducts=[['Loção rosada','Cuidado diário'],['Creme em tubo verde','Rosto e corpo'],['Dispositivo facial','Acessório de beleza'],['Creme hidratante','Rosto'],['Sérum de luminosidade','Rosto'],['Óleo facial','Rosto'],['Creme azul','Hidratação'],['Bruma facial','Refrescante'],['Creme premium','Ritual especial'],['Creme nutritivo','Rosto'],['Illiyoon Ceramide Ato Lotion','Loção hidratante'],['Anua Heartleaf 77% Toner','Tónico'],['Torriden Dive-In Soothing Cream','Creme hidratante'],['COSRX Advanced Snail 96','Essência'],['Beauty of Joseon Dynasty Cream','Creme facial'],['Round Lab Birch Juice Cream','Creme hidratante'],['Torriden Dive-In Hyaluronic Serum','Sérum'],['Anua Niacinamide 10% + TXA 4%','Sérum'],['SKIN1004 Madagascar Centella','Ampoule'],['COSRX Advanced Snail 92 Cream','Creme facial'],['Gel de limpeza verde','Limpeza'],['Creme rosado','Hidratação'],['Creme em tubo pêssego','Rosto'],['Creme azul intenso','Hidratação'],['Sérum âmbar','Rosto'],['Creme essencial','Rosto e corpo'],['Sérum transparente','Rosto'],['Sérum verde','Rosto'],['Creme azul suave','Rosto e corpo'],['Bruma verde','Refrescante'],['Exosso.Dermal Booster Fluid','Uso profissional · 5 ml'],['Exosso.Hair Booster Fluid','Uso profissional · 5 ml'],['Exosso.Hair Booster Fluid','Uso profissional · 5 ml'],['PN Regener','Uso tópico · 2 ml'],['PDRN Factors','Uso tópico · 3 ml'],['GHK-CU Booster Peptide','Uso tópico · 3 ml']];
+window.apCatalog.products=apProducts.map(([name,type],index)=>({name,type,image:apImages[index],description:'Contacte-nos para disponibilidade e mais informações sobre este produto.'}));

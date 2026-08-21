@@ -1,6 +1,20 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 
+const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[character]));
+const cardAttributes = (collection, index, name) => `data-collection="${collection}" data-index="${index}" tabindex="0" role="button" aria-label="Ver detalhes de ${escapeHtml(name)}"`;
+
+document.querySelectorAll('[data-render]').forEach((grid) => {
+  const collection = grid.dataset.render;
+  const items = window.apCatalog?.[collection] || [];
+  grid.innerHTML = items.map((item, index) => {
+    if (collection === 'kits') return `<article class="kit-card kit-card--${item.tone} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="kit-card__visual"><img src="assets/images/collections/k-beauty/${item.image}" alt="Produtos incluídos no ${escapeHtml(item.name)}"></div><p class="kit-card__number">0${index + 1}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.subtitle)}</p><ul>${item.items.map((detail) => `<li>${escapeHtml(detail)}</li>`).join('')}</ul><div class="kit-card__bottom"><strong>${item.price}</strong><span class="text-button">Ver detalhes <span>→</span></span></div></article>`;
+    if (collection === 'regeneratives') return `<article class="regenerative-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="regenerative-card__visual"><img src="assets/images/products/regenerativos/${item.image}" alt="${escapeHtml(item.name)}"></div><p class="regenerative-card__kind">${escapeHtml(item.kind)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></article>`;
+    if (collection === 'products') return `<article class="product-card${index >= 4 ? ' product-card--extra' : ''} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/ap-selection/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
+    return `<article class="nature-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><span class="nature-card__number">${item.icon}</span><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></div></article>`;
+  }).join('');
+});
+
 menuToggle?.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   menuToggle.setAttribute('aria-expanded', String(open));
