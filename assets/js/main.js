@@ -10,6 +10,7 @@ document.querySelectorAll('[data-render]').forEach((grid) => {
   grid.innerHTML = items.map((item, index) => {
     if (collection === 'kits') return `<article class="kit-card kit-card--${item.tone} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="kit-card__visual"><img src="assets/images/collections/k-beauty/${item.image}" alt="Produtos incluídos no ${escapeHtml(item.name)}"></div><p class="kit-card__number">0${index + 1}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.subtitle)}</p><ul>${item.items.map((detail) => `<li>${escapeHtml(detail)}</li>`).join('')}</ul><div class="kit-card__bottom"><strong>${item.price}</strong><span class="text-button">Ver detalhes <span>→</span></span></div></article>`;
     if (collection === 'regeneratives') return `<article class="regenerative-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="regenerative-card__visual"><img src="assets/images/products/regenerativos/${item.image}" alt="${escapeHtml(item.name)}"></div><p class="regenerative-card__kind">${escapeHtml(item.kind)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></article>`;
+    if (collection === 'topNaturals') return `<article class="product-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/top-naturals/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
     if (collection === 'products') return `<article class="product-card${index >= 4 ? ' product-card--extra' : ''} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/ap-selection/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
     return `<article class="nature-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><span class="nature-card__number">${item.icon}</span><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></div></article>`;
   }).join('');
@@ -35,6 +36,7 @@ const modalNote = document.querySelector('#modal-note');
 const collectionLabels = {
   kits: 'Coleção K-Beauty',
   regeneratives: 'Coleção regenerativa',
+  topNaturals: 'Top 5 naturais',
   products: 'Seleção AP',
   naturals: 'AP Natural & Wellness',
 };
@@ -46,7 +48,7 @@ const openProductModal = (card) => {
 
   const details = collection === 'kits'
     ? product.items
-    : [product.type || product.kind, product.description].filter(Boolean);
+    : [product.type || product.kind, product.description, ...(product.benefits || []), product.ingredient ? `Ingrediente principal: ${product.ingredient}` : '', product.price ? `Preço AP: ${product.price}` : ''].filter(Boolean);
 
   modalCollection.textContent = collectionLabels[collection] || 'AP Beauty & Wellness';
   modalTitle.textContent = product.name;

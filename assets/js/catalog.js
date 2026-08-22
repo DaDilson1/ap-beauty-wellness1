@@ -11,6 +11,13 @@ window.apCatalog={
   {name:'Exosso.Dermal',kind:'Tech Exosome Therapy',image:'exosso-dermal.jpg',description:'Cuidado especializado para complementar a rotina facial.'},
   {name:'Exosso.Hair',kind:'Tech Exosome Therapy',image:'exosso-hair.jpg',description:'Cuidado especializado para complementar a rotina capilar.'}
  ],
+ topNaturals:[
+  {name:'Beauty of Joseon Ginseng Cleansing Oil',type:'Óleo de limpeza facial',image:'ginseng_cleansing_oil_studio.webp',description:'Óleo de limpeza suave com extrato de ginseng que ajuda a dissolver maquilhagem, impurezas e excesso de oleosidade sem ressecar a pele.',benefits:['Limpeza profunda e delicada','Nutre e revitaliza','Pele macia e luminosa'],ingredient:'Extrato de Ginseng',price:'14,90 €'},
+  {name:'SKIN1004 Madagascar Centella Ampoule',type:'Ampola calmante',image:'skin1004_ampoule_product.webp',description:'Ampola com centella asiática que ajuda a acalmar, hidratar e fortalecer a barreira natural da pele.',benefits:['Acalma e reduz a vermelhidão','Hidratação profunda','Fortalece a barreira da pele'],ingredient:'Centella Asiática',price:'18,90 €'},
+  {name:'Isntree Hyaluronic Acid Toner',type:'Tónico hidratante',image:'isntree_toner_packshot.webp',description:'Tónico hidratante com ácido hialurónico que ajuda a repor a hidratação e a preparar a pele para os cuidados seguintes.',benefits:['Hidratação intensa','Melhora a elasticidade','Pele suave e revitalizada'],ingredient:'Ácido hialurónico',price:'18,90 €'},
+  {name:'Purito Wonder Releaf Centella Serum',type:'Sérum calmante',image:'purito_centella_serum.webp',description:'Sérum calmante e nutritivo que ajuda a aliviar a sensação de irritação e a apoiar a barreira da pele.',benefits:['Acalma e reduz irritações','Fortalece a barreira da pele','Hidratação e nutrição'],ingredient:'Centella Asiática',price:'20,90 €'},
+  {name:'Round Lab Birch Juice Moisturizing Cream',type:'Creme hidratante',image:'round_lab_birch_cream_jar.webp',description:'Creme hidratante com seiva de bétula que proporciona hidratação profunda e uma sensação confortável na pele.',benefits:['Hidratação duradoura','Reforça a barreira da pele','Textura leve e confortável'],ingredient:'Seiva de Bétula',price:'19,90 €'}
+ ],
  naturals:[
   {icon:'01',name:'Óleos vegetais',description:'Cuidado puro e versátil para a sua rotina.'},{icon:'02',name:'Aromaterapia',description:'Aromas que convidam a desacelerar e respirar.'},{icon:'03',name:'Acessórios naturais',description:'Pequenos rituais que fazem toda a diferença.'}
  ],
