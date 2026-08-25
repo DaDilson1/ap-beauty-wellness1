@@ -9,8 +9,8 @@ document.querySelectorAll('[data-render]').forEach((grid) => {
   const items = window.apCatalog?.[collection] || [];
   grid.innerHTML = items.map((item, index) => {
     if (collection === 'kits') return `<article class="kit-card kit-card--${item.tone} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="kit-card__visual"><img src="assets/images/collections/k-beauty/${item.image}" alt="Produtos incluídos no ${escapeHtml(item.name)}"></div><p class="kit-card__number">0${index + 1}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.subtitle)}</p><ul>${item.items.map((detail) => `<li>${escapeHtml(detail)}</li>`).join('')}</ul><div class="kit-card__bottom"><strong>${item.price}</strong><span class="text-button">Ver detalhes <span>→</span></span></div></article>`;
-    if (collection === 'regeneratives') return `<article class="regenerative-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="regenerative-card__visual"><img src="assets/images/products/regenerativos/${item.image}" alt="${escapeHtml(item.name)}"></div><p class="regenerative-card__kind">${escapeHtml(item.kind)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></article>`;
-    if (collection === 'topNaturals') return `<article class="product-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/top-naturals/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
+    if (collection === 'regeneratives') return `<article class="regenerative-card${index >= 4 ? ' regenerative-card--extra' : ''} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="regenerative-card__visual"><img src="assets/images/products/regenerativos/${item.image}" alt="${escapeHtml(item.name)}"></div><p class="regenerative-card__kind">${escapeHtml(item.kind)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></article>`;
+    if (collection === 'topNaturals') return `<article class="product-card${index >= 4 ? ' product-card--extra' : ''} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/top-naturals/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
     if (collection === 'products') return `<article class="product-card${index >= 4 ? ' product-card--extra' : ''} js-open-product-modal" ${cardAttributes(collection, index, item.name)}><div class="product-card__visual"><img src="assets/images/products/ap-selection/${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"></div><p class="product-card__type">${escapeHtml(item.type)}</p><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Conhecer o produto →</span></article>`;
     return `<article class="nature-card js-open-product-modal" ${cardAttributes(collection, index, item.name)}><span class="nature-card__number">${item.icon}</span><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.description)}</p><span>Saber mais →</span></div></article>`;
   }).join('');
@@ -86,5 +86,27 @@ productsToggle?.addEventListener('click', () => {
   productsToggle.setAttribute('aria-expanded', String(expanded));
   productsToggle.innerHTML = expanded
     ? 'Ver menos <span aria-hidden="true">↓</span>'
+    : 'Ver mais <span aria-hidden="true">↓</span>';
+});
+
+const regenerativesToggle = document.querySelector('[data-regeneratives-toggle]');
+const regenerativesGrid = document.querySelector('#regeneratives-grid');
+
+regenerativesToggle?.addEventListener('click', () => {
+  const expanded = regenerativesGrid?.classList.toggle('is-expanded');
+  regenerativesToggle.setAttribute('aria-expanded', String(expanded));
+  regenerativesToggle.innerHTML = expanded
+    ? 'Ver menos <span aria-hidden="true">↑</span>'
+    : 'Ver mais <span aria-hidden="true">↓</span>';
+});
+
+const topnaturalsToggle = document.querySelector('[data-topnaturals-toggle]');
+const topnaturalsGrid = document.querySelector('#top-naturals-grid');
+
+topnaturalsToggle?.addEventListener('click', () => {
+  const expanded = topnaturalsGrid?.classList.toggle('is-expanded');
+  topnaturalsToggle.setAttribute('aria-expanded', String(expanded));
+  topnaturalsToggle.innerHTML = expanded
+    ? 'Ver menos <span aria-hidden="true">↑</span>'
     : 'Ver mais <span aria-hidden="true">↓</span>';
 });
