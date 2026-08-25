@@ -110,3 +110,35 @@ topnaturalsToggle?.addEventListener('click', () => {
     ? 'Ver menos <span aria-hidden="true">↑</span>'
     : 'Ver mais <span aria-hidden="true">↓</span>';
 });
+
+const ambientAudio = document.getElementById('ambient-audio');
+const musicToggle = document.getElementById('music-toggle');
+
+if (ambientAudio && musicToggle) {
+  ambientAudio.volume = 0.18;
+  ambientAudio.loop = true;
+
+  const toggleMusic = async (shouldPlay) => {
+    musicToggle.classList.toggle('is-playing', shouldPlay);
+    musicToggle.setAttribute('aria-pressed', String(shouldPlay));
+    musicToggle.setAttribute('aria-label', shouldPlay ? 'Desativar música de fundo' : 'Ativar música de fundo');
+    musicToggle.title = shouldPlay ? 'Desativar música de fundo' : 'Ativar música de fundo';
+
+    if (shouldPlay) {
+      try {
+        await ambientAudio.play();
+      } catch (error) {
+        console.warn('Música de fundo não pode iniciar automaticamente.', error);
+      }
+      return;
+    }
+
+    ambientAudio.pause();
+    ambientAudio.currentTime = 0;
+  };
+
+  musicToggle.addEventListener('click', () => {
+    const currentlyPlaying = musicToggle.classList.contains('is-playing');
+    toggleMusic(!currentlyPlaying);
+  });
+}
