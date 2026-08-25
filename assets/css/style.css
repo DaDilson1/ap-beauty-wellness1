@@ -888,9 +888,35 @@ button {
     text-transform: uppercase;
 }
 
+.footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(236, 209, 142, .09);
+    border: 1px solid rgba(236, 209, 142, .22);
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.footer-icon:hover,
+.footer-icon:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(236, 209, 142, .16);
+    border-color: rgba(236, 209, 142, .38);
+}
+
+.footer-icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
 .footer__socials {
     display: flex;
-    gap: 16px;
+    gap: 12px;
+    align-items: center;
 }
 
 .footer__copy {
