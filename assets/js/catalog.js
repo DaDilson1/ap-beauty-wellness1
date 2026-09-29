@@ -5,10 +5,6 @@ window.apCatalog={
   {name:'Kit Excelente',subtitle:'A experiência premium completa',price:'235,00 €',tone:'gold',image:'kit-excelente.jpg',items:['Óleo de limpeza','Sérum concentrado','Creme renovador','Máscara de cuidado']}
  ],
  regeneratives:[
-  {name:'PDRN Factors',kind:'Regenerative Therapy',image:'pdrn-factors.jpg',description:'Fórmula avançada orientada para renovação e hidratação.',specialized:true},
-  {name:'PN Regener',kind:'Polinucleótideo',image:'pn-regener.jpg',description:'Cuidado de suporte para uma pele com aspeto mais saudável.',specialized:true},
-  {name:'Exosso.Dermal',kind:'Tech Exosome Therapy',image:'exosso-dermal.jpg',description:'Cuidado especializado para complementar a rotina facial.',specialized:true},
-  {name:'Exosso.Hair',kind:'Tech Exosome Therapy',image:'exosso-hair.jpg',description:'Cuidado especializado para complementar a rotina capilar.',specialized:true},
   {name:'Beauty of Joseon Relief Sun SPF50+',kind:'Protetor solar facial',image:'beauty-of-joseon-relief-sun.jpg',description:'Protetor solar químico com FPS50+ que oferece proteção diária contra raios UVA e UVB, com textura leve e acabamento confortável.',benefits:['Proteção solar muito alta','Textura leve, sem resíduos brancos','Com arroz e probióticos para apoiar a barreira da pele','Acabamento natural e hidratante']},
   {name:'Anua Heartleaf 77% Soothing Toner',kind:'Tónico calmante',image:'anua-heartleaf-77-toner.jpg',description:'Tónico com 77% de extrato de heartleaf que ajuda a equilibrar e refrescar a pele.',benefits:['Ajuda a acalmar irritações e vermelhidão','Hidrata e ajuda a controlar o excesso de oleosidade','Fórmula suave para peles sensíveis','Ajuda a melhorar a textura da pele']},
   {name:'Torriden Dive-In Hyaluronic Acid Serum',kind:'Sérum hidratante',image:'torriden-dive-in-serum.jpg',description:'Sérum hidratante com ácido hialurónico de baixo peso molecular para uma hidratação profunda e confortável.',benefits:['Hidratação profunda e duradoura','Melhora a elasticidade e suaviza linhas finas','Textura leve e de rápida absorção','Fortalece a barreira de hidratação']},
